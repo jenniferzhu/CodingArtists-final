@@ -214,12 +214,13 @@ server <- function(input, output, session) {
         df <- df[, c("Year", "Median_Income", "Bachelor_Percent", 
                              "Divorce_Percent", "Median_House_Price")]
         df <- gather(df, condition, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
+        df$Year <- as.factor(df$Year)
         ggplot(data = df,
                mapping = aes(x = Year, y = measurement, shape = condition, colour = condition)) +
           geom_point() +
           geom_line() +
           facet_grid(facets = condition ~ ., scale = "free_y")  +
-          theme(axis.text.x = element_text(size = 5, angle = 90),
+          theme(axis.text.x = element_text(size = 5, angle = 30),
                 axis.text.y = element_text(size = 8),
                 axis.title.x = element_text(vjust = 0),
                 axis.ticks = element_blank(),
