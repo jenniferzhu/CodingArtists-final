@@ -213,18 +213,18 @@ server <- function(input, output, session) {
         df <- dataInput4()
         df <- df[, c("Year", "Median_Income", "Bachelor_Percent", 
                              "Divorce_Percent", "Median_House_Price")]
-        df <- gather(df, condition, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
-        df$Year <- as.factor(df$Year)
+        df <- gather(df, Variable, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
+        
         ggplot(data = df,
-               mapping = aes(x = Year, y = measurement, shape = condition, colour = condition)) +
+               mapping = aes(x = Year, y = measurement, shape = Variable, colour = Variable)) +
           geom_point() +
           geom_line() +
-          facet_grid(facets = condition ~ ., scale = "free_y")  +
-          theme(axis.text.x = element_text(size = 5, angle = 30),
-                axis.text.y = element_text(size = 8),
-                axis.title.x = element_text(vjust = 0),
-                axis.ticks = element_blank(),
-                panel.grid.minor = element_blank())
+          facet_grid(facets = Variable ~ ., scale = "free_y")  +
+          scale_x_continuous(breaks = as.integer(df$Year), labels = as.integer(df$Year)) +
+          theme(
+                axis.title.y=element_blank(),
+                panel.grid.minor=element_blank()
+                )
     })
 }
 
