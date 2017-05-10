@@ -20,6 +20,7 @@ The following packages must be installed prior to running this code:
 - `d3heatmap`
 - `shinythemes`
 - `dplyr`
+- `tidyr`
 
 
 To run this code, please enter the following commands in R:
@@ -52,7 +53,7 @@ Below are three screenshots of the interface of the shiny app.
 We used ggplot2 (a lot of choices of plot types, layouts, and customized options), plotly (specifically good for some interactive charts in terms of the pretty layouts and annotations), and d3heatmap (for heat maps) to generate high-quality plots.
 
 ## UI
-We have three tabs to show different plots with some sliderbars. It looks slightly messy since we have too many variables to tune. We will work on improve the UI next.
+We have four tabs to show different plots with sliderbars to filter the states based on the range of four variables. Additionally, we include the opition of years and states for some of the plots. 
 
 ## Summary
-We would liike to refine the current version of shiny app with better layouts and details.
+Based on the 10 year census data, our shiny app use different tabs and/or interactive options to visualize the comparision of income, education, marital status, and house price among states as well as within a state over time. Here we are proud to present the final version of our shiny app. We have refined the layouts, colors, contents, interactions, and details. Hope you enjoy it!
