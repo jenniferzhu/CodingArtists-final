@@ -216,10 +216,9 @@ server <- function(input, output, session) {
         df <- gather(df, Variable, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
         
         ggplot(data = df,
-               mapping = aes(x = Year, y = measurement, shape = Variable, colour = Variable)) +
-          geom_point() +
-          geom_line() +
-          scale_linetype_discrete(name = "") +
+               mapping = aes(x = Year, y = measurement)) +
+          geom_point(aes(shape = Variable, colour = Variable), size = 1) +
+          geom_line(aes(colour = Variable)) +
           facet_grid(facets = Variable ~ ., scale = "free_y")  +
           scale_x_continuous(breaks = as.integer(df$Year), labels = as.integer(df$Year)) +
           theme(
@@ -228,7 +227,7 @@ server <- function(input, output, session) {
                 plot.margin = unit(c(0,0,0.5,0.5), "cm"),
                 strip.background = element_blank(),
                 strip.text.y = element_blank(),
-                axis.text.x = element_text(angle = 15, hjust = 1)
+                axis.text.x = element_text(angle = 15)
                 )
     })
 }
