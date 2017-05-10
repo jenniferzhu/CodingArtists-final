@@ -202,7 +202,8 @@ server <- function(input, output, session) {
     
     # heatmap
     output$heatmap <- renderD3heatmap({
-        d3heatmap(dataInput3(), scale = "column", colors = "Spectral", 
+        col<- colorRampPalette(c("blue", "white", "red"))(256)
+        d3heatmap(dataInput3(), scale = "column", colors = col, 
                   xaxis_font_size = "7pt", 
                   labCol = c("Separate PCT", "Divorce PCT", "Bachelor PCT", "highschool PCT",
                              "Median Income", "Mean Income", "Median House", "Upper House"))
@@ -216,9 +217,9 @@ server <- function(input, output, session) {
         df <- gather(df, Variable, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
         
         ggplot(data = df,
-               mapping = aes(x = Year, y = measurement)) +
-          geom_point(aes(shape = Variable, colour = Variable), size = 1) +
-          geom_line(aes(colour = Variable)) +
+               mapping = aes(x = Year, y = measurement, shape = Variable, colour = Variable)) +
+          geom_point(size = 1) +
+          geom_line() +
           facet_grid(facets = Variable ~ ., scale = "free_y")  +
           scale_x_continuous(breaks = as.integer(df$Year), labels = as.integer(df$Year)) +
           theme(
