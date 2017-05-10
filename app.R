@@ -225,9 +225,10 @@ server <- function(input, output, session) {
           theme(
                 axis.title.y=element_blank(),
                 panel.grid.minor=element_blank(),
-                plot.margin = unit(c(0,0,0.2,0.5), "cm"),
+                plot.margin = unit(c(0,0,0.5,0.5), "cm"),
                 strip.background = element_blank(),
-                strip.text.y = element_blank()
+                strip.text.y = element_blank(),
+                axis.text.x = element_text(angle = 15, hjust = 1)
                 )
     })
 }
