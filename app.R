@@ -217,7 +217,7 @@ server <- function(input, output, session) {
         df <- gather(df, Variable, measurement, Median_Income:Median_House_Price, factor_key=TRUE)
         
         ggplot(data = df,
-               mapping = aes(x = Year, y = measurement, shape = Variable, colour = Variable)) +
+               mapping = aes(x = Year, y = measurement, colour = Variable, shape = Variable)) +
           geom_point(size = 1) +
           geom_line() +
           facet_grid(facets = Variable ~ ., scale = "free_y")  +
