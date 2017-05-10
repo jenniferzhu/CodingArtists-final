@@ -37,11 +37,13 @@ Discussion
 
 Below are three screenshots of the interface of the shiny app.
 
-![IMAGE](shinyapp1.png)
+![IMAGE](image1.png)
 
-![IMAGE](shinyapp2.png)
+![IMAGE](image2.png)
 
-![IMAGE](shinyapp3.png)
+![IMAGE](image3.png)
+
+![IMAGE](image4.png)
 
 ## Data Set
 10 year US Census data(based on states): income, education, marital status, and house price.
