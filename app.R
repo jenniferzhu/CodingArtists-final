@@ -102,7 +102,7 @@ ui <- fluidPage(
                                           choices = unique(census.data$State),
                                           selected = "California")),
                               fluidRow(plotlyOutput("parallel_plot", 
-                                                    width = "100%", height = "400px")))
+                                                    width = "100%", height = "500px")))
 ))))
 
 
@@ -219,11 +219,15 @@ server <- function(input, output, session) {
                mapping = aes(x = Year, y = measurement, shape = Variable, colour = Variable)) +
           geom_point() +
           geom_line() +
+          scale_linetype_discrete(name = "") +
           facet_grid(facets = Variable ~ ., scale = "free_y")  +
           scale_x_continuous(breaks = as.integer(df$Year), labels = as.integer(df$Year)) +
           theme(
                 axis.title.y=element_blank(),
-                panel.grid.minor=element_blank()
+                panel.grid.minor=element_blank(),
+                plot.margin = unit(c(0,0,0.2,0.5), "cm"),
+                strip.background = element_blank(),
+                strip.text.y = element_blank()
                 )
     })
 }
