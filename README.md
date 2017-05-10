@@ -36,7 +36,7 @@ This will start the `shiny` app. See below for details on how to interact with t
 Discussion 
 --------------------
 
-Below are three screenshots of the interface of the shiny app.
+Below are four screenshots of the interface of the shiny app.
 
 ![IMAGE](image1.png)
 
