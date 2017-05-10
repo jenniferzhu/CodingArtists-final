@@ -27,7 +27,7 @@ To run this code, please enter the following commands in R:
 
 ```
 library(shiny)
-shiny::runGitHub('usfviz', 'CodingArtists', subdir='project-prototype')
+shiny::runGitHub("CodingArtists-final", "usfviz")
 ```
 
 This will start the `shiny` app. See below for details on how to interact with the visualization.
